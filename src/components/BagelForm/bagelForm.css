@@ -1,0 +1,21 @@
+.bagelForm {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    background: white;
+    width: 80%;
+    margin: 30px auto;
+}
+
+.bagelForm > * {
+    margin: 10px;
+}
+
+.rating{
+    display:flex;
+    justify-content: space-between;
+}
+.star {
+    max-height: 30px;
+}

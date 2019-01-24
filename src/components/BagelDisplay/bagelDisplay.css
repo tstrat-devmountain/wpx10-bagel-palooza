@@ -1,0 +1,23 @@
+.bagel {
+    min-width: 300px;
+    width: 40%;
+    background-color: white;
+    height: fit-content;
+    
+    /* border-top: 1px solid red;
+    border-bottom: 2px solid black; */
+    box-shadow: 1px 1px 5px black;
+    margin: 30px;
+}
+
+.bagel h1 {
+    font-size: 32px;
+}
+.bagel h3 {
+    font-size: 24px;
+}
+
+.bagel > img {
+    max-height: 200px;
+    max-width: 220px;;
+}
