@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import starFull from '../../media/star_full.png';
 import starEmpty from '../../media/star_empty.png';
 import './bagelForm.css'
+import axios from 'axios';
 
 export default class BagelForm extends Component {
     constructor(params) {
@@ -22,18 +23,22 @@ export default class BagelForm extends Component {
     */
     add () {
         const { name, imageUrl, rating } = this.state;
-         /*
-            Change ADD to do AXIOS call
-        */
-        this.props.addBagel(name, 
-            imageUrl ? imageUrl : 'https://images-na.ssl-images-amazon.com/images/I/31tvh-7KXoL.jpg', 
-            rating);
-        // clear input
-        this.setState({
+        const defaultImage = 'https://images-na.ssl-images-amazon.com/images/I/31tvh-7KXoL.jpg';
+        const newBagel = {
+            name,
+            imageUrl : imageUrl ? imageUrl : defaultImage,
+            rating
+        }
+
+        axios.post('/api/bagels', newBagel)
+        .then( response => {
+            this.props.updateBagels(response.data);
+            this.setState({
             name:'',
             imageUrl:'',
             rating: 1
-        })
+            })
+        })       
     }
 
 
